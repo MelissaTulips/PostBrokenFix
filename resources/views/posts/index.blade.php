@@ -8,7 +8,12 @@
                 <div>
                     <a href="{{ route('posts.show', $post) }}">Show</a>
                     <a href="{{ route('posts.edit', $post) }}">Edit</a>
-                    <a href="{{ route('posts.destroy', $post) }}">Delete</a>
+                    <form action="{{route('posts.destroy', $post)}}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <br>
                 </div>
             </li>
         @endforeach

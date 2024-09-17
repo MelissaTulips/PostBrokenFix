@@ -9,6 +9,9 @@
         @endforeach
     </ul>
 
+    <br>
+    <br>
+
     <h1>Create comment</h1>
     <form action="{{ route('posts.addcomment', $post) }}" method="post">
         @csrf
@@ -17,5 +20,6 @@
         <textarea name="content" id="content"></textarea>
 
         <input type="submit" value="Create">
+        
     </form>
 </x-app-layout>

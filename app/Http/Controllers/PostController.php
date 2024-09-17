@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -68,11 +68,19 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        
         $post->delete();
+        // $posts = Post::all();
         return redirect()->route('posts.index');
     }
     
     public function addComment(Request $request, Post $post) {
+
+        $post->comments()->create($request->all());
+
+      
+
+
         return redirect()->route('posts.show', $post);
     }
 }
